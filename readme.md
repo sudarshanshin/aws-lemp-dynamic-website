@@ -584,70 +584,9 @@ The project can be extended with:
 
 # 🎯 Conclusion
 
-This project successfully demonstrates the deployment of a dynamic PHP
-website on an AWS EC2 instance using the LEMP stack.
 
-The application was configured with:
+This project successfully demonstrates the deployment of a dynamic PHP website on an AWS EC2 instance using the LEMP stack. The application was configured with Nginx as the web server, PHP-FPM for processing PHP requests, and MariaDB for storing user data.
 
-``` text
-AWS EC2
-   ↓
-Linux / Amazon Linux
-   ↓
-Nginx
-   ↓
-PHP-FPM
-   ↓
-PHP Backend
-   ↓
-MariaDB
-   ↓
-signup_db
-   ↓
-users
-```
+Through this project, I gained practical experience in AWS EC2, Linux server administration, Nginx, PHP, MariaDB, security groups, and cloud-based website deployment. It also helped me understand how the frontend, backend, web server, and database work together in a real-world cloud environment.
+Overall, this project provided hands-on experience in cloud deployment and DevOps fundamentals.
 
-The screenshots document the complete process, including EC2 deployment,
-SSH access, Nginx/MariaDB/PHP-FPM service status, database structure,
-signup form, successful PHP response, and stored database records.
-
-The project provides practical experience in AWS EC2, Linux server
-administration, Nginx, PHP, PHP-FPM, MariaDB, SSH, database
-connectivity, and cloud deployment.
-
-------------------------------------------------------------------------
-
-## ⭐ GitHub Screenshot Rendering
-
-When pushing this project to GitHub, keep this exact structure:
-
-``` text
-aws-lemp-dynamic-website/
-│
-├── README.md
-│
-├── signup.html
-├── submit.php
-│
-└── screenshots/
-    ├── ec1.png
-    ├── ec2.png
-    ├── ssh.png
-    ├── server1.png
-    ├── server2.png
-    ├── server3.png
-    ├── datatable.png
-    ├── form.png
-    ├── signin.png
-    └── database.png
-```
-
-The README uses paths such as:
-
-``` markdown
-![EC2 Launch](./screenshots/ec1.png)
-```
-
-GitHub will automatically render these images when the repository is
-pushed, provided the filenames and folder structure remain exactly the
-same.
