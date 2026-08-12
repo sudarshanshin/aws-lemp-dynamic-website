@@ -137,14 +137,7 @@ ssh -i "your-key.pem" ec2-user@YOUR_PUBLIC_IP
 
 ![SSH Connection](./screenshots/ssh.png)
 
-> Never upload your `.pem` private key to GitHub.
 
-Add this to `.gitignore`:
-
-``` gitignore
-*.pem
-.env
-```
 
 ------------------------------------------------------------------------
 
@@ -156,7 +149,7 @@ Update installed packages:
 sudo dnf update -y
 ```
 
-Depending on the Amazon Linux version, the package manager may differ.
+
 
 ------------------------------------------------------------------------
 
@@ -167,8 +160,6 @@ Install the required components:
 ``` bash
 sudo dnf install nginx mariadb105-server php php-fpm -y
 ```
-
-Package names can vary depending on the Amazon Linux version.
 
 The required stack is:
 
@@ -206,8 +197,6 @@ sudo systemctl enable php-fpm
 ------------------------------------------------------------------------
 
 # 🔍 Server Status
-
-The following screenshots document the running services.
 
 ## Nginx
 
