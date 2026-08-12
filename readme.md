@@ -15,9 +15,6 @@ LEMP stands for:
 The application contains a user signup form built using HTML. The form
 data is processed by PHP and stored in a MariaDB database.
 
-The complete deployment was performed on an AWS EC2 instance with Nginx
-as the web server, PHP-FPM for PHP processing, and MariaDB as the
-database server.
 
 ------------------------------------------------------------------------
 
@@ -104,12 +101,7 @@ aws-lemp-dynamic-website/
     ├── form.png
     ├── signin.png
     └── database.png
-```
 
-> **Important:** The screenshot files are stored inside the
-> `screenshots/` folder and referenced using relative Markdown paths.
-> Therefore, when this project is pushed to GitHub, the images will
-> render directly in the README.
 
 ------------------------------------------------------------------------
 
@@ -408,91 +400,6 @@ USE signup_db;
 
 SELECT id, fullname, email
 FROM users;
-```
-
-### Database records
-
-![Database Records](./screenshots/database.png)
-
-The screenshot confirms that signup records have been inserted into the
-`users` table.
-
-------------------------------------------------------------------------
-
-# 🔐 Security Notes
-
-The screenshots show this project working as a basic proof of concept.
-Before using the application in production, the following improvements
-should be made.
-
-## Password Hashing
-
-Passwords should **never be stored as plaintext**.
-
-Use PHP:
-
-``` php
-$passwordHash = password_hash(
-    $_POST['password'],
-    PASSWORD_DEFAULT
-);
-```
-
-For login:
-
-``` php
-password_verify($password, $passwordHash);
-```
-
-## Prepared Statements
-
-Use PDO prepared statements instead of directly inserting user input
-into SQL queries.
-
-``` php
-$stmt = $pdo->prepare(
-    "INSERT INTO users (fullname, email, password)
-     VALUES (:fullname, :email, :password)"
-);
-```
-
-## HTTPS
-
-The current screenshot uses HTTP and the browser displays:
-
-``` text
-Not secure
-```
-
-For production:
-
-``` text
-HTTP
- ↓
-HTTPS
-```
-
-Configure a domain and TLS/SSL certificate and redirect HTTP traffic to
-HTTPS.
-
-## Database User
-
-Do not use the MariaDB root account from the PHP application.
-
-Create a dedicated database user with only the required permissions.
-
-## Secrets
-
-Never commit:
-
-``` text
-.env
-*.pem
-database passwords
-AWS credentials
-```
-
-to GitHub.
 
 ------------------------------------------------------------------------
 
